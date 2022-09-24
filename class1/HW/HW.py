@@ -6,10 +6,10 @@ minor = False
 name = "David"
 weight = 64.5
 zip = "545"
-整數int  :
-布林bool :
-字串str  :
-浮點數float:
+整數int  :apple age zip
+布林bool :minor
+字串str  :name
+浮點數float:weight
 example:
 ball = 100
 talk = 'hello'
