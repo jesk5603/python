@@ -2,7 +2,7 @@ import turtle as t
 
 t.color('red')
 t.penup()
-t.speed(0)
+t.tracer(0, 0)
 t.stamp()
 for a in range(0, 8):
     t.home()
