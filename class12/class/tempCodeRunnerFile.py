@@ -1,0 +1,1 @@
+print('I %d savge'%94)
