@@ -1,50 +1,60 @@
-import turtle as t
+import turtle
 import random as r
 
 
 def tree_leaves(x, y):
-    t.penup()
-    t.goto(x, y)
-    t.pendown()
-    t.setheading(0)
-    t.color('green')
-    t.begin_fill()
-    t.forward(130)
-    t.left(150)
-    t.forward(150)
-    t.left(60)
-    t.forward(150)
-    t.end_fill()
-    t.left(180)
-    t.penup
-    t.forward(150)
-    t.right(30)
-    t.forward(100)
-    t.left
-    t.end_fill()
+    R = float(r.randint(0, 255)) / 255
+    G = float(r.randint(0, 255)) / 255
+    B = float(r.randint(0, 255)) / 255
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.setheading(0)
+    # turtle.color('green')
+    turtle.color(R, G, B)
+    turtle.begin_fill()
+    turtle.forward(40)
+    turtle.left(120)
+    turtle.forward(40)
+    turtle.left(120)
+    turtle.forward(40)
+    turtle.end_fill()
 
 
-def tree(x, y):
-    t.penup()
-    t.goto(x - 20, y + 5)
-    t.color('brown')
-    t.begin_fill()
-    t.setheading(0)
-    t.right(90)
-    t.forward(120)
-    t.left(90)
-    t.forward(40)
-    t.left(90)
-    t.forward(120)
-    t.left(90)
-    t.forward(40)
-    t.left(90)
-    t.end_fill()
-
-    x = int(input('x'))
-    y = int(input('y'))
-    tree_leaves(x, y)
-    tree(x, y)
+def tree_trunk(x, y):
+    # R = float(r.randint(0, 255)) / 255
+    # G = float(r.randint(0, 255)) / 255
+    # B = float(r.randint(0, 255)) / 255
+    turtle.penup()
+    turtle.goto(x + 12.5, y)
+    turtle.pendown()
+    turtle.color('brown')
+    # turtle.color(R, G, B)
+    turtle.begin_fill()
+    turtle.setheading(0)
+    turtle.forward(15)
+    turtle.right(90)
+    turtle.forward(25)
+    turtle.right(90)
+    turtle.forward(15)
+    turtle.right(90)
+    turtle.forward(25)
+    turtle.end_fill()
 
 
-t.done()
+turtle.speed(0)
+
+for i in range(100):
+    x = r.randint(-500, 300)
+    y = r.randint(-200, 200)
+    tree_leaves(x, y + 0)
+    tree_leaves(x, y + 20)
+    tree_leaves(x, y + 40)
+    tree_trunk(x, y + 0)
+
+# tree_leaves(0, 0)
+# tree_leaves(0, 20)
+# tree_leaves(0, 40)
+# tree_trunk(0, 0)
+
+turtle.done()
