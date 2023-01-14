@@ -8,5 +8,5 @@ A. int, int, bool, bool
 B. float, float, str, bool
 c. int, float, str, bool
 D. float, int, str, str
-答案:C
+答案:B
 '''
