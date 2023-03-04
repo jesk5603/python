@@ -58,13 +58,13 @@ list4等於list3*2
 4.請印出倒數第2個元素的值
 5.請將"Orz" 改成"GG"
 6.請移除"GG"'''
-list = ["Savage", "Orz", "Apple"]
-list.insert(0, 94)
-list.append('Pen')
-print(list[2])
-print(list[-2])
-list[2] = 'GG'
-list.remove('GG')
+# list = ["Savage", "Orz", "Apple"]
+# list.insert(0, 94)
+# list.append('Pen')
+# print(list[2])
+# print(list[-2])
+# list[2] = 'GG'
+# list.remove('GG')
 
 7.
 '''A="123456789abcdefg"
@@ -81,3 +81,5 @@ print( A[ :: 3] )'''
 print( A[ 3: -6: 3 ] )
 4.只顯示出a74，請將?代換掉
 print( A[ -7 : 2 : 3 ] )'''
+a = [0, 1, 2, 3, 4]
+print(4 in a)
