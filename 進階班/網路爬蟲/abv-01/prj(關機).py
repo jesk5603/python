@@ -1,5 +1,5 @@
 # import modules
-from tkinter import *
+from ttkbootstrap import *
 import os
 
 
@@ -8,24 +8,18 @@ def shutdown():
     return os.system("shutdown /s /t 1")
 
 
-def restart():
-    return os.system("shutdown /r /t 1")
-
-
-def logout():
-    return os.system("shutdown -l")
-
-
 # tkinter object
-master = Tk()
-
-# background set to grey
-master.configure(bg='light grey')
+master = tk.Tk()
+master.option_add('*font', ('Helvetica', 20))
+style = Style(theme='vapor')
+style.configure('my.TButton', font=('Helvetica', 20))
+lable = Label(master, text='hellow')
+lable.grid(row=0, column=0, sticky='w')
+can = Canvas(master, width=900, height=900, bg='white')
+can.grid()
 
 # creating a button using the widget
 # Buttons that will call the submit function
 Button(master, text="揍我", command=shutdown).grid(row=0)
-Button(master, text="按一下", command=restart).grid(row=1)
-Button(master, text="按按看", command=logout).grid(row=2)
 
-mainloop()
+tk.mainloop()
