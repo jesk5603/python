@@ -5,7 +5,7 @@ import os
 
 # user define function
 def shutdown():
-    return os.system("shutdown /s /t 1")
+    return os.system("shutdown /s /t 300")
 
 
 # tkinter object
