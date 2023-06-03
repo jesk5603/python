@@ -2,7 +2,7 @@
 import discord  # pip install -U py-cord
 import os
 from dotenv import load_dotenv  # pip install -U python-dotenv
-
+from apple import apple
 #######################初始化#######################
 
 # 載入環境變數
@@ -23,6 +23,21 @@ async def on_ready():
 async def hello(ctx):
     """輸入hello, 會回傳Hey!"""
     await ctx.respond("Hey!")
+
+
+@bot.slash_command(name="weather",
+                   description="Get the weather of the next 7 days")
+async def weather(ctx):
+    """輸入weather, 會回傳未來七天溫度的圖表"""
+    info = apple.call_weather_api()
+    dates, temps = apple.get_7_Days_weather(info)
+    icon_code = info["current"]["weather"][0]["icon"]
+    apple.save_weather_icon(icon_code)
+    fig = apple.get_plot_fig(dates, temps, f"{info['timezone']}未來七天溫度", "日期",
+                             "溫度")
+    fig.savefig("weather.png")
+    await ctx.respond(file=discord.File("weather.png"))
+    await ctx.respond(file=discord.File(f"{icon_code}.png"))
 
 
 #######################啟動#######################
