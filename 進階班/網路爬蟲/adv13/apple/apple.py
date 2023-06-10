@@ -69,6 +69,8 @@ def get_video_info(url: str):
     for stream in streams:
         res.append(stream.resolution)
 
+    print(yt.title, yt.author, yt.length, yt.thumbnail_url, res)
+
     return yt.title, yt.author, yt.length, yt.thumbnail_url, res
 
 

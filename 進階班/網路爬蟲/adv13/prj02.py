@@ -18,23 +18,6 @@ async def on_ready():
     print(f"{bot.user} is ready and online!")
 
 
-@bot.slash_command(name='repeat', description='可以重複顯示特定次數的文字')
-@discord.option(name='times', description='要重複的次數')
-async def repeat(ctx, times: int):
-    result = ''
-    for i in range(times):
-        result += f'重複第{i+1}次\n'
-    await ctx.respond(result)
-
-
-@bot.slash_command(name='yt_info')
-@discord.option(name='url', description='輸入連結', required=True)
-async def yt_info(ctx, url: str):
-    title, author, length, image_url, res = mf.get_vedio_info(url)
-    result = f'標題:{title}\n作者:{author}\n長度:{length}\n圖片:{image_url}\n可下載的解析度有:{res}'
-    await ctx.respond(result)
-
-
 #######################指令#######################
 @bot.slash_command(name="hello", description="Say hello to the bot")
 async def hello(ctx):
@@ -55,6 +38,23 @@ async def weather(ctx):
     fig.savefig("weather.png")
     await ctx.respond(file=discord.File("weather.png"))
     await ctx.respond(file=discord.File(f"{icon_code}.png"))
+
+
+@bot.slash_command(name='repeat', description='可以重複顯示特定次數的文字')
+@discord.option(name='times', description='要重複的次數')
+async def repeat(ctx, times: int):
+    result = ''
+    for i in range(times):
+        result += f'重複第{i+1}次\n'
+    await ctx.respond(result)
+
+
+@bot.slash_command(name='yt_info', description='顯示影片資訊')
+@discord.option(name='url', description='輸入連結', required=True)
+async def yt_info(ctx, url: str):
+    title, author, length, image_url, res = apple.get_video_info(url)
+    result = f'標題:{title}\n作者:{author}\n長度:{length}\n圖片:{image_url}\n可下載的解析度有:{res}'
+    await ctx.respond(result)
 
 
 #######################啟動#######################
