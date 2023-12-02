@@ -146,8 +146,6 @@ LIMTT_LOW = 140  # 地面高度
 PTERA_LIMIT_LOW = 110
 clock = pygame.time.Clock()
 RED = (255, 0, 0)
-FPS = 20
-level_up = False
 
 
 ####################載入圖片物件######################
@@ -190,18 +188,10 @@ max_enemies = 3
 enemies_queue = deque(maxlen=max_enemies)
 active_enemies = []
 enemies_delay = 0
-enemies_delay_max = 30
+enemies_delay_max = 20
 ######################循環偵測######################
 while True:
-    clock.tick(FPS)  # FPS
-    if score % 5 == 0 and score != 0 and not level_up:
-        enemies_delay_max = max(20, enemies_delay_max - 1)
-        if enemies_delay_max == 20:
-            FPS += 10
-        level_up = True
-    elif score % 5 != 0:
-        level_up = False
-
+    clock.tick(80)  # FPS
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -220,8 +210,6 @@ while True:
                 ds_y = LIMTT_LOW
                 jumpState = False
                 active_enemies.clear()
-                FPS = 20
-                enemies_delay_max = 30
 
         if event.type == KEYUP:
             if event.key == K_DOWN:
