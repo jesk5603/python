@@ -1,3 +1,4 @@
+import sys
 import network
 from machine import Pin, PWM
 from umqtt.simple import MQTTClient
@@ -149,7 +150,7 @@ class MQTT:
             keepalive=30,
         )
 
-    def connet(self, sys):
+    def connet(self):
         try:
             self.Client.connect()
         except:
