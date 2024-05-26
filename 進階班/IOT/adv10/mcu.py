@@ -177,12 +177,3 @@ class MQTT:
         topic = topic.encode("utf-8")
         msg = msg.encode("utf-8")
         self.client.publish(topic, msg)
-
-
-class Servo:
-    def __init__(self, sg_pin):
-        self.sg = PWM(Pin(sg_pin), freq=50)
-
-    def angle(self, angle: int):
-        if 0 <= angle <= 180:
-            self.sg.duty(int(1023 * (0.5 + angle / 90) / 20))
