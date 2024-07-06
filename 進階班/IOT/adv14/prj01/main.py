@@ -38,6 +38,7 @@ while True:
     'open'代表開啟車庫門
     'close'代表關閉車庫門
     'None'代表不做任何事
+    'HOME_CONFIG'代表正在詢問目前家裡狀態
     你只能根據使用者的回應來決定要回答'ON','OFF','open','close','None'
                 """
             ),
